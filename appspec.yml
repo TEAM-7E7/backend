@@ -3,7 +3,7 @@ os: linux
 files:
   - source: /
     # 인스턴스에서 파일이 저장될 위치
-    destination: /home/ubuntu/app/
+    destination: /home/ubuntu/
     overwrite: yes
 
 permissions:
