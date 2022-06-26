@@ -2,6 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
+    # 인스턴스에서 파일이 저장될 위치
     destination: /home/ubuntu/app/
     overwrite: yes
 
@@ -12,7 +13,7 @@ permissions:
     group: ubuntu
 
 hooks:
-  ApplicationStart:
+  AfterInstall:
     - location: deploy.sh
       timeout: 60
       runas: ubuntu
