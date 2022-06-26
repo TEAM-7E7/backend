@@ -73,5 +73,6 @@ jobs:
           --application-name $PROJECT_NAME
           --deployment-group-name $DEPLOYMENT_GROUP_NAME
           --file-exists-behavior OVERWRITE 
-          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=sparta7e7.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=sparta.zip
           --region ap-northeast-2
+
