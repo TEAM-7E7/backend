@@ -50,7 +50,7 @@ jobs:
         run: ./gradlew build
 
       - name: zip 파일 만들기
-        run: zip -qq -r ./$GITHUB_SHA.zip .
+        run: zip -qq -r ./$PROJECT_NAME.zip .
 
       - name: AWS 세팅
         uses: aws-actions/configure-aws-credentials@v1
@@ -60,7 +60,7 @@ jobs:
           aws-region: ap-northeast-2
 
       - name: S3 업로드
-        run: aws s3 cp --region ap-northeast-2 ./$PROJECT_NAME.zip s3://$S3_BUCKET_NAME/
+        run: aws s3 cp --region ap-northeast-2 . s3://$S3_BUCKET_NAME
 
       - name: 코드 배치하기
         run: aws deploy create-deployment --application-name $CODE_DEPLOY_APP_NAME --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name $DEPLOYMENT_GROUP_NAME --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
